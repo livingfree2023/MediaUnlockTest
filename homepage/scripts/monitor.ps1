@@ -35,7 +35,7 @@ function Invoke-DownloadFile {
 }
 
 # 下载并重命名 unlock-monitor
-$unlockMonitorUrl = "https://unlock.icmp.ing/monitor/latest/unlock-monitor_windows_$arch.exe"
+$unlockMonitorUrl = "https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-monitor_windows_$arch.exe"
 $unlockMonitorPath = "$targetDir\unlock-monitor.exe"
 $unlockMonitorNewPath = "$targetDir\unlock-monitor_new.exe"
 

@@ -38,7 +38,7 @@ function Start-Script {
     
     [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
     
-    $remoteScriptUrl = "https://unlock.icmp.ing/scripts/monitor.ps1"
+    $remoteScriptUrl = "https://raw.githubusercontent.com/livingfree2023/MediaUnlockTest/fork-main/homepage/scripts/monitor.ps1"
     $localScriptPath = Join-Path -Path $targetDir -ChildPath "monitor.ps1"
     
     Invoke-WebRequest -Uri $remoteScriptUrl -OutFile $localScriptPath

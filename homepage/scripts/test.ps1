@@ -36,7 +36,7 @@ function Invoke-DownloadFile {
 }
 
 
-$unlockTestUrl = "https://unlock.icmp.ing/test/latest/unlock-test_windows_$arch.exe"
+$unlockTestUrl = "https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-test_windows_$arch.exe"
 $unlockTestPath = "$targetDir\unlock-test.exe"
 $unlockTestNewPath = "$targetDir\unlock-test_new.exe"
 
@@ -59,5 +59,4 @@ else {
         Write-Host "如果报错，请尝试重新启动 PowerShell 或命令提示符以使更改生效"
     }
 }
-
 

@@ -11,8 +11,8 @@ import (
 func checkUpdate(silent bool) {
 	cfg := core.UpdateConfig{
 		AppName:         "unlock-monitor",
-		VersionURL:      "https://unlock.icmp.ing/monitor/latest/version",
-		BinaryURLPrefix: "https://unlock.icmp.ing/monitor/latest/unlock-monitor",
+		VersionURL:      "https://api.github.com/repos/livingfree2023/MediaUnlockTest/releases/latest",
+		BinaryURLPrefix: "https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-monitor",
 		Silent:          silent,
 	}
 

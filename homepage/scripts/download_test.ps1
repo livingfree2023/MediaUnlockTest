@@ -40,7 +40,7 @@ function Start-Script {
     [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
     
     # 定义远程脚本URL和本地文件路径
-    $remoteScriptUrl = "https://unlock.icmp.ing/scripts/test.ps1"
+    $remoteScriptUrl = "https://raw.githubusercontent.com/livingfree2023/MediaUnlockTest/fork-main/homepage/scripts/test.ps1"
     $localScriptPath = Join-Path -Path $targetDir -ChildPath "test.ps1"
     
     # 下载远程脚本文件

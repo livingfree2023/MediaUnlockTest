@@ -55,7 +55,7 @@ function Invoke-DownloadFile {
 }
 
 # 下载并安装 unlock-test
-$unlockTestUrl = "https://unlock.icmp.ing/test/latest/unlock-test_windows_${arch}.exe"
+$unlockTestUrl = "https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-test_windows_${arch}.exe"
 Invoke-DownloadFile -url $unlockTestUrl -output "$targetDir\unlock-test.exe"
 if (Test-Path -Path "$targetDir\unlock-test.exe") {
     Write-Host "unlock-test 更新成功"
@@ -63,7 +63,7 @@ if (Test-Path -Path "$targetDir\unlock-test.exe") {
 }
 
 # 下载并安装 unlock-monitor
-$unlockMonitorUrl = "https://unlock.icmp.ing/monitor/latest/unlock-monitor_windows_${arch}.exe"
+$unlockMonitorUrl = "https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-monitor_windows_${arch}.exe"
 Invoke-DownloadFile -url $unlockMonitorUrl -output "$targetDir\unlock-monitor.exe"
 if (Test-Path -Path "$targetDir\unlock-monitor.exe") {
     Write-Host "unlock-monitor 更新成功"

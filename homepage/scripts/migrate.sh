@@ -79,8 +79,7 @@ case ${arch} in
     mips64el) arch="mips64le" ;;
     mipsel) arch="mipsle" ;;
 esac
-# url="https://github.com/HsukqiLee/MediaUnlockTest/releases/latest/download/unlock-test_${os}_${arch}"
-url="https://unlock.icmp.ing/test/latest/unlock-test_${os}_${arch}"
+url="https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-test_${os}_${arch}"
 wget ${url} -O unlock-test || curl ${url} -o unlock-test
 chmod +x unlock-test
 if [ -n "$USE_SUDO" ]; then
@@ -90,7 +89,7 @@ else
 fi
 unlock-test -v && echo "unlock-test 更新成功"
 
-url="https://unlock.icmp.ing/monitor/latest/unlock-monitor_${os}_${arch}"
+url="https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-monitor_${os}_${arch}"
 wget ${url} -O unlock-monitor || curl ${url} -o unlock-monitor
 chmod +x unlock-monitor
 if [ -n "$USE_SUDO" ]; then

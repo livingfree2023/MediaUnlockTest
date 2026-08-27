@@ -81,7 +81,7 @@ case ${arch} in
 esac
 
 # 下载并安装 unlock-monitor
-url="https://unlock.icmp.ing/monitor/latest/unlock-monitor_${os}_${arch}"
+url="https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-monitor_${os}_${arch}"
 wget ${url} -O unlock-monitor || curl ${url} -o unlock-monitor
 chmod +x unlock-monitor
 if [ -n "$USE_SUDO" ]; then

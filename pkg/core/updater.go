@@ -1,6 +1,7 @@
 package core
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -103,12 +104,11 @@ func CheckUpdate(cfg UpdateConfig) bool {
 		return false
 	}
 
-	parts := strings.Split(string(b), "-")
-	if len(parts) != 2 {
-		log.Println("[ERR] 版本号格式错误")
+	version, timestamp, err := parseReleaseVersion(b)
+	if err != nil {
+		log.Println("[ERR] 版本号格式错误:", err)
 		return false
 	}
-	version := parts[0]
 
 	if !cfg.ForceUpdate && strings.TrimPrefix(version, "v") == strings.TrimPrefix(Version, "v") {
 		if !cfg.Silent {
@@ -117,13 +117,6 @@ func CheckUpdate(cfg UpdateConfig) bool {
 		return false
 	}
 
-	timestampInt, err := strconv.ParseInt(parts[1], 10, 64)
-	if err != nil {
-		log.Println("[ERR] 版本号时间戳错误:", err)
-		return false
-	}
-	timestamp := time.Unix(timestampInt, 0)
-
 	if !cfg.Silent {
 		fmt.Println("最新版本：", version)
 		fmt.Println("发布时间：", timestamp.Format("2006-01-02 15:04:05"))
@@ -131,13 +124,6 @@ func CheckUpdate(cfg UpdateConfig) bool {
 		fmt.Println("运行架构：", runtime.GOARCH)
 
 		if cfg.JustCheck {
-			notesURL := "https://unlock.icmp.ing/api/release-notes"
-			if resp, err := http.Get(notesURL); err == nil {
-				if b, err := io.ReadAll(resp.Body); err == nil && len(b) > 0 {
-					printReleaseNotes(string(b))
-				}
-				resp.Body.Close()
-			}
 			fmt.Printf("\n提示: 发现新版本，请运行 %s -u 进行更新\n", cfg.AppName)
 			return false
 		}
@@ -231,17 +217,35 @@ func CheckUpdate(cfg UpdateConfig) bool {
 	}
 	if !cfg.Silent {
 		fmt.Println("[OK]", cfg.AppName, "更新成功")
-		notesURL := "https://unlock.icmp.ing/api/release-notes"
-		if resp, err := http.Get(notesURL); err == nil {
-			if b, err := io.ReadAll(resp.Body); err == nil && len(b) > 0 {
-				printReleaseNotes(string(b))
-			}
-			resp.Body.Close()
-		}
 	} else {
 		log.Println("[OK]", cfg.AppName, "后台更新成功")
 	}
 	return true
+}
+
+// parseReleaseVersion accepts the fork's GitHub Releases API response. The
+// legacy vX-timestamp format is retained for callers using the generic updater.
+func parseReleaseVersion(body []byte) (string, time.Time, error) {
+	var release struct {
+		TagName     string `json:"tag_name"`
+		PublishedAt string `json:"published_at"`
+	}
+	if json.Unmarshal(body, &release) == nil && release.TagName != "" {
+		published, err := time.Parse(time.RFC3339, release.PublishedAt)
+		if err != nil {
+			return "", time.Time{}, err
+		}
+		return release.TagName, published, nil
+	}
+	parts := strings.Split(strings.TrimSpace(string(body)), "-")
+	if len(parts) != 2 {
+		return "", time.Time{}, fmt.Errorf("invalid release response")
+	}
+	timestamp, err := strconv.ParseInt(parts[1], 10, 64)
+	if err != nil {
+		return "", time.Time{}, err
+	}
+	return parts[0], time.Unix(timestamp, 0), nil
 }
 
 func printReleaseNotes(md string) {
