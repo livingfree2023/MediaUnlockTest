@@ -92,8 +92,8 @@ case ${arch} in
     mipsel) arch="mipsle" ;;
 esac
 
-# 下载并安装 unlock-test
-url="https://unlock.icmp.ing/test/latest/unlock-test_${os}_${arch}"
+# 从 livingfree2023/MediaUnlockTest 的最新正式版本下载并安装 unlock-test
+url="https://github.com/livingfree2023/MediaUnlockTest/releases/latest/download/unlock-test_${os}_${arch}"
 wget ${url} -O unlock-test || curl ${url} -o unlock-test
 chmod +x unlock-test
 if [ -n "$USE_SUDO" ]; then

@@ -1,13 +1,13 @@
 # MediaUnlockTest
 
-[![Release](https://img.shields.io/github/v/release/HsukqiLee/MediaUnlockTest?style=flat)](https://github.com/HsukqiLee/MediaUnlockTest/releases)
+[![Release](https://img.shields.io/github/v/release/livingfree2023/MediaUnlockTest?style=flat)](https://github.com/livingfree2023/MediaUnlockTest/releases)
 [![Go Version](https://img.shields.io/github/go-mod/go-version/HsukqiLee/MediaUnlockTest?style=flat)](https://github.com/HsukqiLee/MediaUnlockTest/blob/main/go.mod)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/71a113901b8f4c4c9020d908c8254011)](https://app.codacy.com/gh/HsukqiLee/MediaUnlockTest/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![GitHub stars](https://img.shields.io/github/stars/HsukqiLee/MediaUnlockTest?style=flat)](https://github.com/HsukqiLee/MediaUnlockTest/stargazers)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHsukqiLee%2FMediaUnlockTest.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHsukqiLee%2FMediaUnlockTest?ref=badge_shield)
 [![FOSSA Security](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHsukqiLee%2FMediaUnlockTest.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2FHsukqiLee%2FMediaUnlockTest?ref=badge_shield&issueType=security)
 
-[中文文档](https://github.com/HsukqiLee/MediaUnlockTest/blob/main/README.md) | **English Docs**
+[中文文档](README.md) | **English Docs**
 
 > Faster media unlock test tool
 
@@ -22,7 +22,7 @@ Linux (Including iOS iSH) / macOS / Android Termux：
 (requires read and write permissions for the /usr/bin, /usr/local/bin, and $PREFIX/bin directories respectively)
 
 ```bash
-bash <(curl -Ls unlock.icmp.ing/scripts/test.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/livingfree2023/MediaUnlockTest/fork-main/homepage/scripts/test.sh) --table
 ```
 
 Windows PowerShell (Run as Administrator)：
