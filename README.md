@@ -81,6 +81,7 @@ import "https://github.com/HsukqiLee/MediaUnlockTest"
 <a href="https://github.com/angryLid" title="angrylid"><img src="https://avatars.githubusercontent.com/u/31571456?v=4" width="50;" alt="angrylid"/></a>
 <a href="https://github.com/edgist" title="edgist"><img src="https://avatars.githubusercontent.com/u/34343603?v=4" width="50;" alt="edgist"/></a>
 <a href="https://github.com/fossabot" title="fossabot"><img src="https://avatars.githubusercontent.com/u/29791463?v=4" width="50;" alt="fossabot"/></a>
+<a href="https://github.com/livingfree2023" title="livingfree2023"><img src="https://avatars.githubusercontent.com/u/125038641?v=4" width="50;" alt="livingfree2023"/></a>
 <a href="https://github.com/iawb-ray" title="iawb-ray"><img src="https://avatars.githubusercontent.com/u/49180084?v=4" width="50;" alt="iawb-ray"/></a><!--GAMFC_DELIMITER_END-->
 
 ## 社区准则
